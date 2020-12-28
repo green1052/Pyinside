@@ -1,8 +1,7 @@
+import protocol, json
 from urllib.parse import quote
 
-import protocol
-from url import URL
-
+URL = json.load(open('./link/link.json', 'r')) # ./link/link.json
 
 def read(gall_id, article_no):
     body = {
@@ -13,7 +12,6 @@ def read(gall_id, article_no):
 
     res = protocol.get(URL["article"]["read"], body)
     return res.json()
-
 
 # 작동 안함
 def write(gall_id, subject, memo, name, password):

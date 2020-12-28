@@ -1,6 +1,6 @@
-import protocol
-from url import URL
+import protocol, json
 
+URL = json.load(open('./link/link.json', 'r')) # ./link/link.json
 
 def read(gall_id, article_no, page=1):
     body = {
@@ -12,7 +12,6 @@ def read(gall_id, article_no, page=1):
 
     res = protocol.get(URL["comment"]["read"], body)
     return res.json()
-
 
 def write(gall_id, article_no, nickname, password, memo):
     body = {
